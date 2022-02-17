@@ -3,18 +3,21 @@ patient_list = [
     {
         'ID': '12345',
         'NAMA': 'MARJONO',
+        'GENDER': 'P',
         'DOB': '1975-01-03',
         'ADDRESS' : 'DEPOK'
     },
     {
         'ID': '12346',
         'NAMA': 'PRABOWO',
+        'GENDER': 'P',
         'DOB': '1980-03-04',
         'ADDRESS' : 'JAKARTA'
     },
     {
         'ID': '12347',
-        'NAMA': 'DEDDY',
+        'NAMA': 'SURYANI',
+        'GENDER': 'W',
         'DOB': '1962-05-08',
         'ADDRESS' : 'BSD'
     }
@@ -31,9 +34,9 @@ def showPatientList() :
         if (read == '1'):
             if len(patient_list) != 0 :
                 print('\n******** DAFTAR NAMA PASIEN ********\n')
-                print('NO\t| ID     \t| NAMA   \t| DOB    \t| address'.upper())
+                print('NO\t| ID     \t| NAMA   \t| GENDER | DOB\t       | address'.upper())
                 for j,i in enumerate(patient_list) :
-                    print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['DOB']}  \t| {i['ADDRESS']}")
+                    print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['GENDER']}\t | {i['DOB']}  | {i['ADDRESS']}")
             else :
                 print('\n******** Data Pasien Tidak Ditemukan ********'.upper())
             continue
@@ -43,8 +46,8 @@ def showPatientList() :
                 print('\nData ID Pasien : {}\n'.format(pat_id).upper())
                 for j,i in enumerate(patient_list) :
                     if i['ID'] == pat_id:
-                        print('NO\t| ID     \t| NAMA   \t| DOB    \t| address'.upper())
-                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['DOB']}  \t| {i['ADDRESS']}")
+                        print('NO\t| ID     \t| NAMA   \t| GENDER | DOB\t       | address'.upper())
+                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['GENDER']}\t | {i['DOB']}  | {i['ADDRESS']}")
                         break
                 else:
                     print('\n******** pasien belum terdaftar ********\n'.upper())
@@ -66,9 +69,9 @@ def addPatient():
         if add == '1':
             if len(patient_list) >= 0 :
                 print('\n******** DAFTAR NAMA PASIEN ********\n')
-                print('NO\t| ID     \t| NAMA   \t| DOB    \t| address'.upper())
+                print('NO\t| ID     \t| NAMA   \t| GENDER | DOB\t       | address'.upper())
                 for j,i in enumerate(patient_list) :
-                    print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['DOB']}  \t| {i['ADDRESS']}")
+                    print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['GENDER']}\t | {i['DOB']}  | {i['ADDRESS']}")
                 patientID = input('\nINPUT ID PASIEN baru : '.upper())
                 for j,i in enumerate(patient_list) :
                     if i['ID'] == patientID:
@@ -76,14 +79,16 @@ def addPatient():
                         break
                     else:
                         patientName = input('INPUT NAMA PASIEN : '.upper())
+                        patientGender = input('input gender pasien : '.upper())
                         patientDOB = input('INPUT DOB PASIEN : '.upper())
                         patientADD = input('INPUT ADDRESS PASIEN : '.upper())
                         while True:
                             ans1 = input('konfirmasi data akan ditambahkan [Y/N] : '.upper())
                             if ans1 == 'Y' or ans1 == 'y':
                                 patient_list.append({
-                    'ID' : patientID,
+                    'ID': patientID,
                     'NAMA': patientName.upper(),
+                    'GENDER': patientGender.upper(),
                     'DOB': patientDOB.upper(),
                     'ADDRESS': patientADD.upper()
     })
@@ -114,10 +119,10 @@ def delPatient() :
             if len(patient_list) != 0 :
                 pat_id = (input('\nInput ID Pasien yang ingin dihapus : '.upper()))
                 print('\nData ID Pasien : {}\n'.format(pat_id).upper())
-                print('NO\t| ID     \t| NAMA   \t| DOB    \t| address'.upper())
+                print('NO\t| ID     \t| NAMA   \t| GENDER | DOB\t       | address'.upper())
                 for j,i in enumerate(patient_list) :
                     if i['ID'] == pat_id:
-                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['DOB']}  \t| {i['ADDRESS']}")
+                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['GENDER']}\t | {i['DOB']}  | {i['ADDRESS']}")
                         break
                 else:
                     print('\n******** pasien belum terdaftar ********'.upper())
@@ -151,10 +156,10 @@ def editPatient():
             if len(patient_list) != 0 :
                 pat_id = (input('\nInput ID Pasien yang ingin diubah : '.upper()))
                 print('\nData ID Pasien : {}\n'.format(pat_id).upper())
-                print('NO\t| ID     \t| NAMA   \t| DOB    \t| address'.upper())
+                print('NO\t| ID     \t| NAMA   \t| GENDER | DOB\t       | address'.upper())
                 for j,i in enumerate(patient_list) :
                     if i['ID'] == pat_id:
-                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['DOB']}  \t| {i['ADDRESS']}")
+                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['GENDER']}\t | {i['DOB']}  | {i['ADDRESS']}")
                         break
                 else:
                     print('\n******** pasien belum terdaftar ********'.upper())
@@ -168,6 +173,8 @@ def editPatient():
                             i['ID'] = newVal
                         elif kolEdit == 'NAMA' or kolEdit == 'nama':
                             i['NAMA'] = newVal.upper()
+                        elif kolEdit == 'GENDER' or kolEdit == 'gender':
+                            i['GENDER'] == newVal.upper
                         elif kolEdit == 'DOB' or kolEdit == 'dob':
                             i['DOB'] = newVal
                         elif kolEdit == 'ADDRESS' or kolEdit == 'address':
