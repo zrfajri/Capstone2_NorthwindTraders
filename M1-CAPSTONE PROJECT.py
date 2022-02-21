@@ -158,37 +158,37 @@ def editPatient():
                 print('\nData ID Pasien : {}\n'.format(pat_id).upper())
                 print('NO\t| ID     \t| NAMA   \t| GENDER | DOB\t       | address'.upper())
                 for j,i in enumerate(patient_list) :
-                    if i['ID'] == pat_id:
-                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['GENDER']}\t | {i['DOB']}  | {i['ADDRESS']}")
-                        break
-                else:
-                    print('\n******** pasien belum terdaftar ********'.upper())
-                    break
-                while True:
-                    ans3 = input('\nkonfirmasi data akan diubah [Y/N] : '.upper())
-                    if ans3 == 'Y' or ans3 == 'y':
-                        kolEdit = input('\ninput kolom data yang ingin diubah : '.upper())
-                        newVal = input('Input data {} baru : '.format(kolEdit).upper())
-                        if kolEdit == 'ID' or kolEdit == 'id':
-                            i['ID'] = newVal
-                        elif kolEdit == 'NAMA' or kolEdit == 'nama':
-                            i['NAMA'] = newVal.upper()
-                        elif kolEdit == 'GENDER' or kolEdit == 'gender':
-                            i['GENDER'] == newVal.upper
-                        elif kolEdit == 'DOB' or kolEdit == 'dob':
-                            i['DOB'] = newVal
-                        elif kolEdit == 'ADDRESS' or kolEdit == 'address':
-                            i['ADDRESS'] = newVal.upper()
-                        else:
-                            print('\n******** kolom tidak tersedia ********'.upper())
-                            break
-                        print('\n******** data berhasil diubah ********\n'.upper())
-                        break
-                    elif ans3 == 'N' or ans3 == 'n':
-                        print('\n******** data batal diubah ********\n'.upper())
+                    if i['ID'] != pat_id:
+                        print('\n******** pasien belum terdaftar ********'.upper())
                         break
                     else:
-                        print('\n******** Pilihan Tidak Sesuai ********\n'.upper())
+                        print(f"{j+1}\t| {i['ID']}   \t| {i['NAMA']}   \t| {i['GENDER']}\t | {i['DOB']}  | {i['ADDRESS']}")
+                    while True:
+                        ans3 = input('\nkonfirmasi data akan diubah [Y/N] : '.upper())
+                        if ans3 == 'Y' or ans3 == 'y':
+                            kolEdit = input('\ninput kolom data yang ingin diubah : '.upper())
+                            newVal = input('Input data {} baru : '.format(kolEdit).upper())
+                            if kolEdit == 'ID' or kolEdit == 'id':
+                                i['ID'] = newVal
+                            elif kolEdit == 'NAMA' or kolEdit == 'nama':
+                                i['NAMA'] = newVal.upper()
+                            elif kolEdit == 'GENDER' or kolEdit == 'gender':
+                                i['GENDER'] == newVal.upper
+                            elif kolEdit == 'DOB' or kolEdit == 'dob':
+                                i['DOB'] = newVal
+                            elif kolEdit == 'ADDRESS' or kolEdit == 'address':
+                                i['ADDRESS'] = newVal.upper()
+                            else:
+                                print('\n******** kolom tidak tersedia ********'.upper())
+                                break
+                            print('\n******** data berhasil diubah ********\n'.upper())
+                            break
+                        elif ans3 == 'N' or ans3 == 'n':
+                            print('\n******** data batal diubah ********\n'.upper())
+                            break
+                        else:
+                            print('\n******** Pilihan Tidak Sesuai ********\n'.upper())
+                    break
                 continue
             else :
                 print('\n******** Data Nama Pasien Tidak Ditemukan ********'.upper())
