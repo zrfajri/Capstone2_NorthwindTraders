@@ -23,8 +23,10 @@ This Database contains 13<sup>*</sup> Tables as the following:
 12.	**Territories** : contains region classifications
 
 <sup>*</sup> the other 2 tables **CustomerCustomerDemo** & **CustomerDemographics** are blank tables 
-<br><br><br>
+<br>
 
 The image below displays the **Entity Relationship Diagram (ERD)** of Northwind Traders. <br> <br>
 
 ![ERD](https://raw.githubusercontent.com/jpwhite3/northwind-SQLite3/master/Northwind_ERD.png)
+
+Find more information about this project on the following [Jupyter Notebook](https://github.com/zrfajri/Purwadhika-JCV-Project/blob/f45e610872add469311f09804ceac2c65224f0c3/M2%20CAPSTONE%20PROJECT.ipynb)
