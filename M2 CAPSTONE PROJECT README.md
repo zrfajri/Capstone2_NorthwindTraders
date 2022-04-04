@@ -25,7 +25,7 @@ This Database contains 13<sup>*</sup> Tables as the following:
 <sup>*</sup> the other 2 tables **CustomerCustomerDemo** & **CustomerDemographics** are blank tables 
 <br>
 
-The image below displays the **Entity Relationship Diagram (ERD)** of Northwind Traders. <br> <br>
+The image below displays the **Entity Relationship Diagram (ERD)** of Northwind Traders. <br>
 
 ![ERD](https://raw.githubusercontent.com/jpwhite3/northwind-SQLite3/master/Northwind_ERD.png)
 
